@@ -1,4 +1,4 @@
-use std::io;
+use std::io; //입출력 라이브러리
 
 fn main() {
     println!("Guess the number!");
