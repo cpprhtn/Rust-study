@@ -83,7 +83,7 @@ fn takes_and_gives_back(a_string: String) -> String {
 }
 
 fn calculate_length(s: String) -> (String, usize) {
-    let length = s.len(); // len() returns the length of a String.
+    let length = s.len();
 
     (s, length)
 }
