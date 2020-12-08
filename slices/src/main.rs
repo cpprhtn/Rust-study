@@ -57,7 +57,7 @@ fn main() {
     // s의 타입: &str
     let s = "Hello, world!";
 
-    //&String과 &str은 같은의미
+    // &String과 &str은 같은의미
 
     //
     let my_string = String::from("hello world");
@@ -77,6 +77,6 @@ fn main() {
 
     //
     let a = [1, 2, 3, 4, 5];
-    //이 슬라이스는 &[i32] 타입을 가짐
+    // 이 슬라이스는 &[i32] 타입을 가짐
     let slice = &a[1..3];
 }
