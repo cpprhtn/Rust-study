@@ -87,15 +87,15 @@ fn main() {
         None => x
     };
 
-    let sum2 = x + y.unwrap();
+    let sum2 = x + y.unwrap();  //패닉
 
-    let sum3 = x + y.unwrap_or(0);
+    let sum3 = x + y.unwrap_or(0);  // y가 None이면 x
 
     let sum4 = y.map(|y| x + y).unwrap_or(x);
 
     let sum5 = if let Some(y) = y { x + y } else { x };
 
-    let sum6 = add(5, Some(5)).unwrap_or(0);
+    let sum6 = add(5, Some(5)).unwrap_or(0);    // y가 None이면 0
 
     let sum7 = y.map_or(x, |y| x + y);
     
