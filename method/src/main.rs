@@ -27,6 +27,7 @@ fn main() {
     let rect2 = Rectangle { length: 40, width: 10 }; // 400
     let rect3 = Rectangle { length: 45, width: 60 }; // 2700
 
+    println!("<area>\nrect1: {}\nrect2: {}\nrect3: {}", rect1.area(),rect2.area(),rect3.area());
     println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
 }
