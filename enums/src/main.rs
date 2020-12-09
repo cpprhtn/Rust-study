@@ -87,5 +87,28 @@ fn main() {
         None => x
     };
 
-    println!("x + y = {}", sum);
+    let sum2 = x + y.unwrap();
+
+    let sum3 = x + y.unwrap_or(0);
+
+    let sum4 = y.map(|y| x + y).unwrap_or(x);
+
+    let sum5 = if let Some(y) = y { x + y } else { x };
+
+    let sum6 = add(5, Some(5)).unwrap_or(0);
+
+    let sum7 = y.map_or(x, |y| x + y);
+    
+    //let sum8 = Some(x).zip_with(y, |x, y| x + y);
+
+    let sum9 = unsafe {
+        let [_, y] = std::mem::transmute::<_, [i8; 2]>(y);
+        x + y
+    };
+
+    println!("x + y\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}", sum, sum2, sum3, sum4, sum5, sum6, sum7, sum9);
+}
+
+fn add(x: i8, y: Option<i8>) -> Option<i8> {
+    Some(x + y?)
 }
