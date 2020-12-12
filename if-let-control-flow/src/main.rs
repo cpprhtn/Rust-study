@@ -40,7 +40,7 @@ fn main() {
     // ver2 - if let
     if let Coin::Quarter(state) = coin {
         println!("State quarter from {:?}!", state);
-    } 
+    }  
     else {
         count += 1;
     }
