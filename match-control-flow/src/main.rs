@@ -14,7 +14,7 @@ fn main() {
         Quarter(UsState),
     }
 
-    //ver1
+    // ver1
     /*
     fn value_in_cents(coin: Coin) -> u32 {
         match coin {
@@ -26,7 +26,7 @@ fn main() {
     }
     */
 
-    //ver2
+    // ver2
     /*
     fn value_in_cents(coin: Coin) -> u32 {
         match coin {
@@ -41,7 +41,7 @@ fn main() {
     }
     */
 
-    //ver3
+    // ver3
     fn value_in_cents(coin: Coin) -> u32 {
         match coin {
             Coin::Penny => 1,
@@ -53,4 +53,16 @@ fn main() {
             },
         }
     }
+
+    // Option<i32> 상에서 match를 이용하는 함수
+    fn plus_one(x: Option<i32>) -> Option<i32> {
+        match x {
+            None => None,
+            Some(i) => Some(i + 1),
+        }
+    }
+    
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
 }
