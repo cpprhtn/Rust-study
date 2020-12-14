@@ -52,7 +52,7 @@ fn main() {
         },
     };
 
-    // match를 이용하여 호출 코드 쪽으로 에러를 반환하는 함수
+    // match를 이용하여 호출 코드쪽으로 에러를 반환하는 함수
     fn read_username_from_file() -> Result<String, io::Error> {
         let f = File::open("hello.txt");
     
@@ -68,4 +68,25 @@ fn main() {
             Err(e) => Err(e),
         }
     }
+
+    // ?를 이용하여 에러를 호출 코드쪽으로 반환하는 함수
+    fn read_username_from_file() -> Result<String, io::Error> {
+        let mut f = File::open("hello.txt")?;
+        let mut s = String::new();
+        f.read_to_string(&mut s)?;
+        Ok(s)
+    }
+
+    // 물음표 연산자 뒤에 메소드 호출을 연결
+    fn read_username_from_file() -> Result<String, io::Error> {
+        let mut s = String::new();
+    
+        File::open("hello.txt")?.read_to_string(&mut s)?;
+    
+        Ok(s)
+    }
+
+    // 물음표(?) 연산자는 Result를 반환하는 함수에서만 사용될 수 있음
+    // 아래와 같은경우에는 에러가 발생
+    let f = File::open("hello.txt")?;    
 }
