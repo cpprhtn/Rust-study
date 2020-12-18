@@ -69,7 +69,7 @@ fn main() {
         }
     }
 
-    // ?를 이용하여 에러를 호출 코드쪽으로 반환하는 함수
+    // ?를 이용하여 에러를 호출 코드 쪽으로 반환하는 함수
     fn read_username_from_file() -> Result<String, io::Error> {
         let mut f = File::open("hello.txt")?;
         let mut s = String::new();
