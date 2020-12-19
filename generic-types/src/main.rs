@@ -1,3 +1,5 @@
+
+// 함수 정의 내에서 제네릭 데이터 타입
 fn largest_i32(list: &[i32]) -> i32 {
     let mut largest = list[0];
 
@@ -34,4 +36,15 @@ fn main() {
     let result = largest_char(&chars);
     println!("The largest char is {}", result);
    assert_eq!(result, 'y');
+}
+
+// 구조체 정의 내에서 제네릭 데이터 타입
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let integer = Point { x: 5, y: 10 };
+    let float = Point { x: 1.0, y: 4.0 };
 }
