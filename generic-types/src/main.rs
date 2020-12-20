@@ -1,4 +1,4 @@
-
+/*
 // 함수 정의 내에서 제네릭 데이터 타입
 fn largest_i32(list: &[i32]) -> i32 {
     let mut largest = list[0];
@@ -47,4 +47,37 @@ struct Point<T> {
 fn main() {
     let integer = Point { x: 5, y: 10 };
     let float = Point { x: 1.0, y: 4.0 };
+}
+
+
+// 두 타입을 이용한 제네릭이어서 x와 y가 다른 타입의 값일 수도 있는 Point
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
+
+fn main() {
+    let both_integer = Point { x: 5, y: 10 };
+    let both_float = Point { x: 1.0, y: 4.0 };
+    let integer_and_float = Point { x: 5, y: 4.0 };
+}
+*/
+
+
+// T 타입의 x 필드에 대한 참조자를 반환하는 Point<T> 구조체 상에 x라는 이름의 메소드 정의
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+fn main() {
+    let p = Point { x: 5, y: 10 };
+
+    println!("p.x = {}", p.x());
 }
