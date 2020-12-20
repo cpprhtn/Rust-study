@@ -61,7 +61,7 @@ fn main() {
     let both_float = Point { x: 1.0, y: 4.0 };
     let integer_and_float = Point { x: 5, y: 4.0 };
 }
-*/
+
 
 
 // T 타입의 x 필드에 대한 참조자를 반환하는 Point<T> 구조체 상에 x라는 이름의 메소드 정의
@@ -80,4 +80,30 @@ fn main() {
     let p = Point { x: 5, y: 10 };
 
     println!("p.x = {}", p.x());
+}
+*/
+
+
+//
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
+
+impl<T, U> Point<T, U> {
+    fn mixup<V, W>(self, other: Point<V, W>) -> Point<T, W> {
+        Point {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 5, y: 10.4 };
+    let p2 = Point { x: "Hello", y: 'c'};
+
+    let p3 = p1.mixup(p2);
+
+    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
 }
