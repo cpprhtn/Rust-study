@@ -26,12 +26,25 @@ fn main() {
         println!("The longest string is {}", result);
     }
 
-    // 
+    // 참조자를 들고 있는 구조체, 따라서 정의 부분에 라이프타임 명시가 필요
     let novel = String::from("Call me Ishmael. Some years ago...");
     let first_sentence = novel.split('.')
         .next()
         .expect("Could not find a '.'");
     let i = ImportantExcerpt { part: first_sentence };
+
+    // 파라미터와 반환 값의 타입이 참조자임에도 불구하고 라이프타임 명시 없이 컴파일되었던, 4장에서 정의한 바 있는 함수
+    fn first_word(s: &str) -> &str {
+        let bytes = s.as_bytes();
+    
+        for (i, &item) in bytes.iter().enumerate() {
+            if item == b' ' {
+                return &s[0..i];
+            }
+        }
+    
+        &s[..]
+    }
 }
 
 struct ImportantExcerpt<'a> {
