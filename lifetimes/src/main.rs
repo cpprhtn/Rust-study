@@ -48,6 +48,20 @@ fn main() {
 
     // 정적 라이프타임 (Static lifetimes)
     let s: &'static str = "I have a static lifetime.";
+
+    // 제네릭 타입 파라미터, 트레잇 바운드, 라이프타임을 함께 써보기
+    use std::fmt::Display;
+
+    fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+        where T: Display
+    {
+        println!("Announcement! {}", ann);
+        if x.len() > y.len() {
+            x
+        } else {
+            y
+        }
+    }
 }
 
 struct ImportantExcerpt<'a> {
@@ -60,3 +74,4 @@ impl<'a> ImportantExcerpt<'a> {
         self.part
     }
 }
+
