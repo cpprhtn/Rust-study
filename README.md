@@ -13,3 +13,5 @@ https://crates.io/
 > cargo test 커맨드는 프로젝트에 있는 모든 테스트를 실행
 
 > cargo run 커맨드는 toml파일과 main.rs 파일을 실행
+
+> cargo run needle haystack
