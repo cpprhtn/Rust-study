@@ -1,11 +1,20 @@
 use std::env;
-use std::fs::File;
-use std::io::prelude::*;
+use std::fs;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    println!("{:?}", args);
 
+    let config = Config::new(&args);
+
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.filename);
+
+    let contents = fs::read_to_string(config.filename)
+        .expect("Something went wrong reading the file");
+
+    println!("With text:\n{}", contents);
+
+    /*
     // 쿼리와 파일이름 인자를 보관하는 두 변수 생성
     let query = &args[1];
     let filename = &args[2];
@@ -15,16 +24,20 @@ fn main() {
 
     // 두 번째 인자로 특정된 파일의 내용 읽어들이기
     let mut f = File::open(filename).expect("file not found");
+    */
 
-    let mut contents = String::new();
-    f.read_to_string(&mut contents).expect("Something went wrong reading the file");
-
-    println!("With text:\n{}", contents);
 }
 
-fn parse_config(args: &[String]) -> (&str, &str) {
-    let query = &args[1];
-    let filename = &args[2];
+struct Config {
+    query: String,
+    filename: String,
+}
 
-    (query, filename)
+impl Config {
+    fn new(args: &[String]) -> Config {
+        let query = args[1].clone();
+        let filename = args[2].clone();
+
+        Config { query, filename }
+    }
 }
