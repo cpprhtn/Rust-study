@@ -34,7 +34,12 @@ struct Config {
 }
 
 impl Config {
+    // 인자의 숫자가 몇 개인지 검증 추가
     fn new(args: &[String]) -> Config {
+        if args.len() < 3 {
+            panic!("not enough arguments");
+        }
+
         let query = args[1].clone();
         let filename = args[2].clone();
 
