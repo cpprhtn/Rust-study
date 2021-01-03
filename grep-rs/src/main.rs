@@ -33,6 +33,22 @@ struct Config {
     filename: String,
 }
 
+/*
+impl Config {
+    // Config::new에서 Result반환
+    fn new(args: &[String]) -> Result<Config, &'static str> {
+        // 인자의 숫자가 몇 개인지 검증 추가
+        if args.len() < 3 {
+            return Err("not enough arguments");
+        }
+
+        let query = args[1].clone();
+        let filename = args[2].clone();
+
+        Ok(Config { query, filename })
+    }
+}*/
+
 impl Config {
     // 인자의 숫자가 몇 개인지 검증 추가
     fn new(args: &[String]) -> Config {
