@@ -1,0 +1,1 @@
+/Users/cpprhtn/Desktop/git_local/Rust-study/grep-rs/target/debug/minigrep: /Users/cpprhtn/Desktop/git_local/Rust-study/grep-rs/src/lib.rs /Users/cpprhtn/Desktop/git_local/Rust-study/grep-rs/src/main.rs
